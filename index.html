@@ -3,940 +3,144 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Rion Shop</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
+<title>RionShop | Online Store</title>
 <style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
-
-body{
-    background:#f6f8fc;
-    color:#222;
-}
-
-/* HEADER */
-
-header{
-    background:linear-gradient(135deg,#111827,#4f46e5,#7c3aed);
-    color:white;
-    padding:18px 7%;
-    position:sticky;
-    top:0;
-    z-index:1000;
-    box-shadow:0 5px 20px rgba(0,0,0,.15);
-}
-
-.navbar{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:25px;
-}
-
-.logo{
-    font-size:28px;
-    font-weight:800;
-}
-
-.logo span{
-    color:#facc15;
-}
-
-.search{
-    flex:1;
-    max-width:550px;
-    display:flex;
-}
-
-.search input{
-    width:100%;
-    padding:13px 18px;
-    border:none;
-    outline:none;
-    border-radius:30px 0 0 30px;
-    font-size:15px;
-}
-
-.search button{
-    border:none;
-    padding:0 22px;
-    background:#facc15;
-    color:#111;
-    border-radius:0 30px 30px 0;
-    cursor:pointer;
-    font-weight:700;
-}
-
-.cart{
-    background:white;
-    color:#4f46e5;
-    padding:10px 18px;
-    border-radius:25px;
-    font-weight:700;
-}
-
-/* HERO */
-
-.hero{
-    min-height:430px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:70px 8%;
-    background:linear-gradient(120deg,#eef2ff,#faf5ff);
-}
-
-.hero-text{
-    max-width:600px;
-}
-
-.hero h1{
-    font-size:55px;
-    line-height:1.1;
-    margin-bottom:20px;
-    color:#111827;
-}
-
-.hero h1 span{
-    color:#6366f1;
-}
-
-.hero p{
-    font-size:18px;
-    color:#64748b;
-    margin-bottom:30px;
-}
-
-.shop-btn{
-    display:inline-block;
-    padding:14px 28px;
-    background:#4f46e5;
-    color:white;
-    border-radius:30px;
-    text-decoration:none;
-    font-weight:700;
-    box-shadow:0 10px 25px rgba(79,70,229,.3);
-}
-
-.hero-icon{
-    font-size:170px;
-    filter:drop-shadow(0 15px 20px rgba(0,0,0,.15));
-}
-
-/* CATEGORY */
-
-.categories{
-    padding:45px 8% 20px;
-    text-align:center;
-}
-
-.categories h2{
-    font-size:30px;
-    margin-bottom:25px;
-}
-
-.category-box{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:15px;
-}
-
-.category{
-    padding:12px 24px;
-    background:white;
-    border-radius:30px;
-    cursor:pointer;
-    box-shadow:0 5px 15px rgba(0,0,0,.07);
-    font-weight:600;
-    transition:.3s;
-}
-
-.category:hover{
-    background:#4f46e5;
-    color:white;
-    transform:translateY(-3px);
-}
-
-/* PRODUCTS */
-
-.products{
-    padding:35px 7% 70px;
-}
-
-.products-title{
-    text-align:center;
-    margin-bottom:35px;
-}
-
-.products-title h2{
-    font-size:34px;
-}
-
-.products-title p{
-    color:#64748b;
-}
-
-.product-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:25px;
-}
-
-.product{
-    background:white;
-    border-radius:20px;
-    overflow:hidden;
-    box-shadow:0 8px 25px rgba(15,23,42,.08);
-    transition:.35s;
-    position:relative;
-}
-
-.product:hover{
-    transform:translateY(-8px);
-    box-shadow:0 15px 35px rgba(15,23,42,.15);
-}
-
-.product-img{
-    height:210px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:linear-gradient(135deg,#eef2ff,#f5f3ff);
-    font-size:90px;
-}
-
-.badge{
-    position:absolute;
-    top:12px;
-    left:12px;
-    background:#ef4444;
-    color:white;
-    padding:5px 12px;
-    border-radius:20px;
-    font-size:12px;
-    font-weight:700;
-}
-
-.product-info{
-    padding:18px;
-}
-
-.product-info h3{
-    font-size:18px;
-    margin-bottom:7px;
-}
-
-.product-info p{
-    color:#64748b;
-    font-size:13px;
-    margin-bottom:10px;
-}
-
-.rating{
-    color:#f59e0b;
-    font-size:14px;
-    margin-bottom:10px;
-}
-
-.price{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-}
-
-.price strong{
-    font-size:20px;
-    color:#4f46e5;
-}
-
-.buy{
-    border:none;
-    background:#4f46e5;
-    color:white;
-    padding:9px 15px;
-    border-radius:20px;
-    cursor:pointer;
-    font-weight:600;
-}
-
-.buy:hover{
-    background:#3730a3;
-}
-
-/* OFFER */
-
-.offer{
-    margin:20px 7% 60px;
-    padding:45px;
-    border-radius:25px;
-    background:linear-gradient(135deg,#4f46e5,#9333ea);
-    color:white;
-    text-align:center;
-}
-
-.offer h2{
-    font-size:35px;
-    margin-bottom:10px;
-}
-
-.offer p{
-    margin-bottom:20px;
-}
-
-.offer button{
-    border:none;
-    padding:13px 28px;
-    border-radius:30px;
-    background:#facc15;
-    font-weight:700;
-    cursor:pointer;
-}
-
-/* FOOTER */
-
-footer{
-    background:#111827;
-    color:white;
-    padding:50px 8% 20px;
-}
-
-.footer-grid{
-    display:grid;
-    grid-template-columns:2fr 1fr 1fr 1fr;
-    gap:40px;
-}
-
-footer h3{
-    margin-bottom:15px;
-}
-
-footer p{
-    color:#9ca3af;
-    line-height:1.8;
-}
-
-footer ul{
-    list-style:none;
-}
-
-footer li{
-    margin:10px 0;
-    color:#9ca3af;
-}
-
-.copyright{
-    text-align:center;
-    border-top:1px solid #374151;
-    margin-top:35px;
-    padding-top:20px;
-    color:#9ca3af;
-}
-
-/* MOBILE */
-
-@media(max-width:1000px){
-    .product-grid{
-        grid-template-columns:repeat(3,1fr);
-    }
-}
-
-@media(max-width:750px){
-
-    header{
-        padding:15px 4%;
-    }
-
-    .navbar{
-        flex-wrap:wrap;
-    }
-
-    .search{
-        order:3;
-        flex-basis:100%;
-        max-width:none;
-    }
-
-    .hero{
-        text-align:center;
-        padding:50px 6%;
-    }
-
-    .hero h1{
-        font-size:40px;
-    }
-
-    .hero-icon{
-        display:none;
-    }
-
-    .product-grid{
-        grid-template-columns:repeat(2,1fr);
-        gap:15px;
-    }
-
-    .product-img{
-        height:170px;
-        font-size:70px;
-    }
-
-    .footer-grid{
-        grid-template-columns:1fr 1fr;
-    }
-}
-
-@media(max-width:480px){
-
-    .logo{
-        font-size:22px;
-    }
-
-    .cart{
-        padding:8px 12px;
-        font-size:13px;
-    }
-
-    .product-grid{
-        grid-template-columns:1fr;
-    }
-
-    .footer-grid{
-        grid-template-columns:1fr;
-    }
-
-    .offer{
-        margin:20px 4% 40px;
-        padding:30px 15px;
-    }
-
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff;min-height:100vh}
+header{padding:28px 18px;text-align:center;background:linear-gradient(135deg,#111827,#312e81);box-shadow:0 4px 20px #0006}
+.logo{font-size:38px;font-weight:900;letter-spacing:1px;color:#fff}
+.tag{margin-top:8px;color:#cbd5e1;font-size:15px}
+.search{display:block;width:min(600px,92%);margin:20px auto 0;padding:14px 18px;border:0;border-radius:30px;font-size:16px;outline:none}
+.container{width:min(1200px,94%);margin:30px auto 50px}
+.title{font-size:28px;margin-bottom:20px;text-align:center}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.card{background:#fff;color:#111827;border-radius:18px;overflow:hidden;box-shadow:0 10px 30px #0005;transition:.25s}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 40px #0007}
+.img-wrap{height:300px;background:#f1f5f9;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.img-wrap img{width:100%;height:100%;object-fit:cover}
+.info{padding:16px}
+.info h3{font-size:18px;line-height:1.3;min-height:46px}
+.price{font-size:20px;font-weight:800;color:#4f46e5;margin:10px 0 14px}
+button{width:100%;padding:12px;border:0;border-radius:10px;background:linear-gradient(90deg,#4f46e5,#7c3aed);color:#fff;font-size:16px;font-weight:700;cursor:pointer}
+footer{text-align:center;padding:25px;color:#cbd5e1;background:#020617}
+.hidden{display:none}
 </style>
 </head>
-
 <body>
-
-<!-- HEADER -->
-
 <header>
-
-<div class="navbar">
-
-<div class="logo">
-Rion<span>Shop</span>
-</div>
-
-<div class="search">
-<input type="text" placeholder="Search products...">
-<button>Search</button>
-</div>
-
-<div class="cart">
-🛒 Cart <span id="cartCount">0</span>
-</div>
-
-</div>
-
+  <div class="logo">RionShop 🛍️</div>
+  <div class="tag">Fashion • Beauty • Lifestyle • More</div>
+  <input id="search" class="search" type="search" placeholder="Search products..." oninput="filterProducts()">
 </header>
 
-
-<!-- HERO -->
-
-<section class="hero">
-
-<div class="hero-text">
-
-<h1>
-Shop Smart.<br>
-Shop <span>Rion.</span>
-</h1>
-
-<p>
-Discover premium products at amazing prices.
-Quality, style and value — all in one place.
-</p>
-
-<a href="#products" class="shop-btn">
-Shop Now →
-</a>
-
-</div>
-
-<div class="hero-icon">
-🛍️
-</div>
-
-</section>
-
-
-<!-- CATEGORY -->
-
-<section class="categories">
-
-<h2>Browse Categories</h2>
-
-<div class="category-box">
-
-<div class="category">📱 Electronics</div>
-<div class="category">👕 Fashion</div>
-<div class="category">🎧 Accessories</div>
-<div class="category">⌚ Gadgets</div>
-<div class="category">🏠 Home</div>
-
-</div>
-
-</section>
-
-
-<!-- PRODUCTS -->
-
-<section class="products" id="products">
-
-<div class="products-title">
-
-<h2>🔥 Popular Products</h2>
-
-<p>Our best selling products for you</p>
-
-</div>
-
-
-<div class="product-grid">
-
-
-<!-- PRODUCT 1 -->
-
-<div class="product">
-
-<span class="badge">SALE</span>
-
-<div class="product-img">
-📱
-</div>
-
-<div class="product-info">
-
-<h3>Smartphone Pro X</h3>
-
-<p>Powerful smartphone with premium design.</p>
-
-<div class="rating">★★★★★</div>
-
-<div class="price">
-<strong>৳18,999</strong>
-<button class="buy" onclick="addCart()">Add</button>
-</div>
-
-</div>
-
-</div>
-
-
-<!-- PRODUCT 2 -->
-
-<div class="product">
-
-<div class="product-img">
-🎧
-</div>
-
-<div class="product-info">
-
-<h3>Wireless Headphone</h3>
-
-<p>Crystal clear sound with deep bass.</p>
-
-<div class="rating">★★★★★</div>
-
-<div class="price">
-<strong>৳2,499</strong>
-<button class="buy" onclick="addCart()">Add</button>
-</div>
-
-</div>
-
-</div>
-
-
-<!-- PRODUCT 3 -->
-
-<div class="product">
-
-<span class="badge">NEW</span>
-
-<div class="product-img">
-⌚
-</div>
-
-<div class="product-info">
-
-<h3>Smart Watch S9</h3>
-
-<p>Modern smartwatch with health features.</p>
-
-<div class="rating">★★★★☆</div>
-
-<div class="price">
-<strong>৳3,499</strong>
-<button class="buy" onclick="addCart()">Add</button>
-</div>
-
-</div>
-
-</div>
-
-
-<!-- PRODUCT 4 -->
-
-<div class="product">
-
-<div class="product-img">
-👟
-</div>
-
-<div class="product-info">
-
-<h3>Premium Sneakers</h3>
-
-<p>Comfortable shoes for everyday lifestyle.</p>
-
-<div class="rating">★★★★★</div>
-
-<div class="price">
-<strong>৳2,999</strong>
-<button class="buy" onclick="addCart()">Add</button>
-</div>
-
-</div>
-
-</div>
-
-
-<!-- PRODUCT 5 -->
-
-<div class="product">
-
-<span class="badge">SALE</span>
-
-<div class="product-img">
-🎒
-</div>
-
-<div class="product-info">
-
-<h3>Travel Backpack</h3>
-
-<p>Stylish and durable backpack.</p>
-
-<div class="rating">★★★★☆</div>
-
-<div class="price">
-<strong>৳1,599</strong>
-<button class="buy" onclick="addCart()">Add</button>
-</div>
-
-</div>
-
-</div>
-
-
-<!-- PRODUCT 6 -->
-
-<div class="product">
-
-<div class="product-img">
-🕶️
-</div>
-
-<div class="product-info">
-
-<h3>Premium Sunglasses</h3>
-
-<p>Trendy sunglasses with UV protection.</p>
-
-<div class="rating">★★★★★</div>
-
-<div class="price">
-<strong>৳899</strong>
-<button class="buy" onclick="addCart()">Add</button>
-</div>
-
-</div>
-
-</div>
-
-
-<!-- PRODUCT 7 -->
-
-<div class="product">
-
-<div class="product-img">
-💻
-</div>
-
-<div class="product-info">
-
-<h3>Ultra Laptop</h3>
-
-<p>Fast performance for work and study.</p>
-
-<div class="rating">★★★★★</div>
-
-<div class="price">
-<strong>৳54,999</strong>
-<button class="buy" onclick="addCart()">Add</button>
-</div>
-
-</div>
-
-</div>
-
-
-<!-- PRODUCT 8 -->
-
-<div class="product">
-
-<div class="product-img">
-🖱️
-</div>
-
-<div class="product-info">
-
-<h3>Gaming Mouse</h3>
-
-<p>RGB gaming mouse with high precision.</p>
-
-<div class="rating">★★★★☆</div>
-
-<div class="price">
-<strong>৳1,299</strong>
-<button class="buy" onclick="addCart()">Add</button>
-</div>
-
-</div>
-
-</div>
-
-
-<!-- PRODUCT 9 -->
-
-<div class="product">
-
-<span class="badge">NEW</span>
-
-<div class="product-img">
-⌨️
-</div>
-
-<div class="product-info">
-
-<h3>Mechanical Keyboard</h3>
-
-<p>RGB mechanical keyboard for gamers.</p>
-
-<div class="rating">★★★★★</div>
-
-<div class="price">
-<strong>৳2,199</strong>
-<button class="buy" onclick="addCart()">Add</button>
-</div>
-
-</div>
-
-</div>
-
-
-<!-- PRODUCT 10 -->
-
-<div class="product">
-
-<div class="product-img">
-📷
-</div>
-
-<div class="product-info">
-
-<h3>Digital Camera</h3>
-
-<p>Capture beautiful moments in high quality.</p>
-
-<div class="rating">★★★★☆</div>
-
-<div class="price">
-<strong>৳24,999</strong>
-<button class="buy" onclick="addCart()">Add</button>
-</div>
-
-</div>
-
-</div>
-
-
-<!-- PRODUCT 11 -->
-
-<div class="product">
-
-<span class="badge">SALE</span>
-
-<div class="product-img">
-🔊
-</div>
-
-<div class="product-info">
-
-<h3>Bluetooth Speaker</h3>
-
-<p>Loud sound with powerful bass.</p>
-
-<div class="rating">★★★★★</div>
-
-<div class="price">
-<strong>৳1,799</strong>
-<button class="buy" onclick="addCart()">Add</button>
-</div>
-
-</div>
-
-</div>
-
-
-<!-- PRODUCT 12 -->
-
-<div class="product">
-
-<div class="product-img">
-🎮
-</div>
-
-<div class="product-info">
-
-<h3>Gaming Controller</h3>
-
-<p>Wireless controller for ultimate gaming.</p>
-
-<div class="rating">★★★★★</div>
-
-<div class="price">
-<strong>৳2,799</strong>
-<button class="buy" onclick="addCart()">Add</button>
-</div>
-
-</div>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-<!-- OFFER -->
-
-<section class="offer">
-
-<h2>🎉 Special Offer!</h2>
-
-<p>Get up to 30% OFF on selected products.</p>
-
-<button onclick="alert('Offer activated!')">
-Grab The Deal
-</button>
-
-</section>
-
-
-<!-- FOOTER -->
-
-<footer>
-
-<div class="footer-grid">
-
-<div>
-
-<h3>RionShop</h3>
-
-<p>
-Your trusted online shopping destination.
-Quality products, great prices and excellent service.
-</p>
-
-</div>
-
-<div>
-
-<h3>Quick Links</h3>
-
-<ul>
-<li>Home</li>
-<li>Products</li>
-<li>About Us</li>
-<li>Contact</li>
-</ul>
-
-</div>
-
-<div>
-
-<h3>Categories</h3>
-
-<ul>
-<li>Electronics</li>
-<li>Fashion</li>
-<li>Gadgets</li>
-<li>Accessories</li>
-</ul>
-
-</div>
-
-<div>
-
-<h3>Contact</h3>
-
-<ul>
-<li>📧 rionshop@gmail.com</li>
-<li>📞 +880 1806-xxxxxx</li>
-<li>📍 Bangladesh</li>
-</ul>
-
-</div>
-
-</div>
-
-<div class="copyright">
-
-© 2026 RionShop. All Rights Reserved.
-
-</div>
-
-</footer>
-
+<main class="container">
+  <h2 class="title">Featured Products</h2>
+  <section id="products" class="grid">
+    
+    <article class="card">
+      <div class="img-wrap"><img src="dark-blue-jeans.jpg" alt="Classic Dark Blue Jeans" loading="lazy"></div>
+      <div class="info">
+        <h3>Classic Dark Blue Jeans</h3>
+        <p class="price">৳ 1,090</p>
+        <button onclick="order('Classic Dark Blue Jeans')">Order Now</button>
+      </div>
+    </article>
+    
+
+    <article class="card">
+      <div class="img-wrap"><img src="white-jeans.jpg" alt="Premium White Jeans" loading="lazy"></div>
+      <div class="info">
+        <h3>Premium White Jeans</h3>
+        <p class="price">৳ 1,150</p>
+        <button onclick="order('Premium White Jeans')">Order Now</button>
+      </div>
+    </article>
+    
+
+    <article class="card">
+      <div class="img-wrap"><img src="blue-jeans.jpg" alt="Classic Blue Denim Jeans" loading="lazy"></div>
+      <div class="info">
+        <h3>Classic Blue Denim Jeans</h3>
+        <p class="price">৳ 1,050</p>
+        <button onclick="order('Classic Blue Denim Jeans')">Order Now</button>
+      </div>
+    </article>
+    
+
+    <article class="card">
+      <div class="img-wrap"><img src="stripe-drop-shoulder-shirt.jpg" alt="Gentle Stripe Drop-Shoulder Shirt" loading="lazy"></div>
+      <div class="info">
+        <h3>Gentle Stripe Drop-Shoulder Shirt</h3>
+        <p class="price">৳ 890</p>
+        <button onclick="order('Gentle Stripe Drop-Shoulder Shirt')">Order Now</button>
+      </div>
+    </article>
+    
+
+    <article class="card">
+      <div class="img-wrap"><img src="light-blue-baggy-jeans.jpg" alt="Light Blue Baggy Jeans" loading="lazy"></div>
+      <div class="info">
+        <h3>Light Blue Baggy Jeans</h3>
+        <p class="price">৳ 1,190</p>
+        <button onclick="order('Light Blue Baggy Jeans')">Order Now</button>
+      </div>
+    </article>
+    
+
+    <article class="card">
+      <div class="img-wrap"><img src="papaya-purifying-cleanser.jpg" alt="Papaya Purifying Cleanser" loading="lazy"></div>
+      <div class="info">
+        <h3>Papaya Purifying Cleanser</h3>
+        <p class="price">৳ 350</p>
+        <button onclick="order('Papaya Purifying Cleanser')">Order Now</button>
+      </div>
+    </article>
+    
+
+    <article class="card">
+      <div class="img-wrap"><img src="street-style-outfit.jpg" alt="Street Style Outfit" loading="lazy"></div>
+      <div class="info">
+        <h3>Street Style Outfit</h3>
+        <p class="price">৳ 1,490</p>
+        <button onclick="order('Street Style Outfit')">Order Now</button>
+      </div>
+    </article>
+    
+
+    <article class="card">
+      <div class="img-wrap"><img src="free-fire-profile.jpg" alt="Free Fire Profile" loading="lazy"></div>
+      <div class="info">
+        <h3>Free Fire Profile</h3>
+        <p class="price">৳ 500</p>
+        <button onclick="order('Free Fire Profile')">Order Now</button>
+      </div>
+    </article>
+    
+
+    <article class="card">
+      <div class="img-wrap"><img src="casual-brown-white-outfit.jpg" alt="Casual Brown & White Outfit" loading="lazy"></div>
+      <div class="info">
+        <h3>Casual Brown & White Outfit</h3>
+        <p class="price">৳ 1,390</p>
+        <button onclick="order('Casual Brown & White Outfit')">Order Now</button>
+      </div>
+    </article>
+    
+  </section>
+</main>
+
+<footer>© 2026 RionShop — All Rights Reserved</footer>
 
 <script>
-
-let cart = 0;
-
-function addCart(){
-
-cart++;
-
-document.getElementById("cartCount").innerText = cart;
-
-alert("Product added to cart! 🛒");
-
+function filterProducts(){
+  const q=document.getElementById('search').value.toLowerCase();
+  document.querySelectorAll('.card').forEach(card=>{
+    card.classList.toggle('hidden', !card.innerText.toLowerCase().includes(q));
+  });
 }
-
+function order(name){
+  alert("Thanks for choosing RionShop!\n\nProduct: " + name + "\n\nAdd your WhatsApp/Facebook order link here when you're ready.");
+}
 </script>
-
 </body>
 </html>
