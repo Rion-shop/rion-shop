@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rion Shop - Featured Collection</title>
+<style>
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#111216;
+    color:#f5f7ff;
+  }
+  .container{
+    width:min(100%, 760px);
+    margin:auto;
+    padding:28px 16px 50px;
+  }
+  h1{
+    margin:0;
+    font-size:clamp(32px,7vw,52px);
+    line-height:1.1;
+  }
+  .subtitle{
+    color:#c7ccd8;
+    font-size:18px;
+    margin:16px 0 26px;
+  }
+  .search{
+    width:100%;
+    padding:17px 18px;
+    border:1px solid #555a66;
+    border-radius:18px;
+    background:#292a2d;
+    color:white;
+    font-size:17px;
+    outline:none;
+    margin-bottom:18px;
+  }
+  .search:focus{border-color:#79aef8}
+  .grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+  .card{
+    overflow:hidden;
+    border:1px solid #50535d;
+    border-radius:28px;
+    background:#1d1e20;
+    box-shadow:0 8px 28px rgba(0,0,0,.25);
+  }
+  .photo{
+    width:100%;
+    height:330px;
+    display:block;
+    object-fit:cover;
+    background:#292a2d;
+  }
+  .info{padding:22px 28px 28px}
+  .tag{
+    color:#79b6ff;
+    font-weight:800;
+    letter-spacing:1px;
+    font-size:15px;
+    margin-bottom:16px;
+  }
+  .name{
+    margin:0 0 12px;
+    font-size:27px;
+  }
+  .desc{
+    color:#aeb6c5;
+    font-size:17px;
+    line-height:1.5;
+    margin:0 0 24px;
+  }
+  .bottom{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+  }
+  .price{
+    font-size:30px;
+    font-weight:800;
+  }
+  .order{
+    border:0;
+    border-radius:15px;
+    background:#08a82d;
+    color:white;
+    font-weight:800;
+    font-size:17px;
+    padding:15px 22px;
+    cursor:pointer;
+  }
+  .order:active{transform:scale(.97)}
+  .empty{
+    display:none;
+    padding:30px;
+    text-align:center;
+    color:#aeb6c5;
+  }
+  @media(max-width:480px){
+    .container{padding:24px 14px 40px}
+    .photo{height:300px}
+    .info{padding:20px}
+    .name{font-size:24px}
+    .bottom{align-items:center}
+    .price{font-size:26px}
+    .order{padding:13px 16px;font-size:16px}
+  }
+</style>
+</head>
+
+<body>
+<div class="container">
+  <h1>✨ Featured Collection</h1>
+  <div class="subtitle">Premium denim • Stylish • Affordable</div>
+
+  <input id="search" class="search" type="search"
+         placeholder="🔎 Product search করুন">
+
+  <div id="products" class="grid">
+
+    <article class="card" data-name="Sky Blue Baggy Jeans">
+      <img class="photo"
+        src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=1000&q=85"
+        alt="Sky Blue Baggy Jeans">
+      <div class="info">
+        <div class="tag">DENIM COLLECTION</div>
+        <h2 class="name">Sky Blue Baggy Jeans</h2>
+        <p class="desc">Relaxed fit denim for everyday style.</p>
+        <div class="bottom">
+          <div class="price">৳950</div>
+          <button class="order" onclick="orderNow('Sky Blue Baggy Jeans','950')">Order Now</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-name="Classic Blue Wide Jeans">
+      <img class="photo"
+        src="https://images.unsplash.com/photo-1604176354204-9268737828e4?auto=format&fit=crop&w=1000&q=85"
+        alt="Classic Blue Wide Jeans">
+      <div class="info">
+        <div class="tag">DENIM COLLECTION</div>
+        <h2 class="name">Classic Blue Wide Jeans</h2>
+        <p class="desc">Comfortable wide-leg fit with a clean classic look.</p>
+        <div class="bottom">
+          <div class="price">৳990</div>
+          <button class="order" onclick="orderNow('Classic Blue Wide Jeans','990')">Order Now</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-name="Black Baggy Jeans">
+      <img class="photo"
+        src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=1000&q=85"
+        alt="Black Baggy Jeans">
+      <div class="info">
+        <div class="tag">DENIM COLLECTION</div>
+        <h2 class="name">Black Baggy Jeans</h2>
+        <p class="desc">Modern baggy fit for a bold everyday outfit.</p>
+        <div class="bottom">
+          <div class="price">৳1,050</div>
+          <button class="order" onclick="orderNow('Black Baggy Jeans','1050')">Order Now</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-name="Light Wash Denim">
+      <img class="photo"
+        src="https://images.unsplash.com/photo-1548883354-94bcfe321cbb?auto=format&fit=crop&w=1000&q=85"
+        alt="Light Wash Denim">
+      <div class="info">
+        <div class="tag">DENIM COLLECTION</div>
+        <h2 class="name">Light Wash Denim</h2>
+        <p class="desc">Fresh light-wash denim with a relaxed streetwear feel.</p>
+        <div class="bottom">
+          <div class="price">৳1,000</div>
+          <button class="order" onclick="orderNow('Light Wash Denim','1000')">Order Now</button>
+        </div>
+      </div>
+    </article>
+
+  </div>
+
+  <div id="empty" class="empty">কোনো product পাওয়া যায়নি।</div>
+</div>
+
+<script>
+  const search = document.getElementById('search');
+  const cards = [...document.querySelectorAll('.card')];
+  const empty = document.getElementById('empty');
+
+  search.addEventListener('input', () => {
+    const q = search.value.trim().toLowerCase();
+    let shown = 0;
+
+    cards.forEach(card => {
+      const name = card.dataset.name.toLowerCase();
+      const show = name.includes(q);
+      card.style.display = show ? '' : 'none';
+      if(show) shown++;
+    });
+
+    empty.style.display = shown ? 'none' : 'block';
+  });
+
+  function orderNow(product, price){
+    const message =
+      'Assalamu Alaikum, আমি এই product টি order করতে চাই:%0A%0A' +
+      'Product: ' + encodeURIComponent(product) + '%0A' +
+      'Price: ৳' + encodeURIComponent(price);
+
+    /* এখানে তোমার WhatsApp নম্বর বসাও:
+       উদাহরণ: 8801806575485
+    */
+    const phone = '8801806575485';
+
+    window.open('https://wa.me/' + phone + '?text=' + message, '_blank');
+  }
+</script>
+</body>
+</html>
