@@ -1,146 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RionShop | Online Store</title>
+<!doctype html>
+<html lang="bn"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RionShop — Premium Denim</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff;min-height:100vh}
-header{padding:28px 18px;text-align:center;background:linear-gradient(135deg,#111827,#312e81);box-shadow:0 4px 20px #0006}
-.logo{font-size:38px;font-weight:900;letter-spacing:1px;color:#fff}
-.tag{margin-top:8px;color:#cbd5e1;font-size:15px}
-.search{display:block;width:min(600px,92%);margin:20px auto 0;padding:14px 18px;border:0;border-radius:30px;font-size:16px;outline:none}
-.container{width:min(1200px,94%);margin:30px auto 50px}
-.title{font-size:28px;margin-bottom:20px;text-align:center}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-.card{background:#fff;color:#111827;border-radius:18px;overflow:hidden;box-shadow:0 10px 30px #0005;transition:.25s}
-.card:hover{transform:translateY(-6px);box-shadow:0 18px 40px #0007}
-.img-wrap{height:300px;background:#f1f5f9;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.img-wrap img{width:100%;height:100%;object-fit:cover}
-.info{padding:16px}
-.info h3{font-size:18px;line-height:1.3;min-height:46px}
-.price{font-size:20px;font-weight:800;color:#4f46e5;margin:10px 0 14px}
-button{width:100%;padding:12px;border:0;border-radius:10px;background:linear-gradient(90deg,#4f46e5,#7c3aed);color:#fff;font-size:16px;font-weight:700;cursor:pointer}
-footer{text-align:center;padding:25px;color:#cbd5e1;background:#020617}
-.hidden{display:none}
-</style>
-</head>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,"Noto Sans Bengali",sans-serif;background:#f5f7fb;color:#111827}
+header{background:linear-gradient(135deg,#0f172a,#2563eb);color:white;padding:28px 18px}
+.nav{max-width:1150px;margin:auto;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:28px;font-weight:900}nav a{color:white;text-decoration:none;margin-left:18px}
+.hero{max-width:1150px;margin:auto;padding:55px 18px;display:grid;grid-template-columns:1.2fr .8fr;gap:25px}
+.hero h1{font-size:clamp(40px,7vw,68px);margin:0 0 15px;line-height:1}
+.hero p{color:#64748b;font-size:17px;line-height:1.7}
+.hero .box{background:#0f172a;color:white;border-radius:24px;padding:28px}
+.btn{display:inline-block;background:#2563eb;color:white;padding:13px 18px;border-radius:11px;text-decoration:none;font-weight:800}
+main{max-width:1150px;margin:auto;padding:20px 18px 60px}
+.top{display:flex;justify-content:space-between;gap:15px;align-items:center;flex-wrap:wrap}
+.top h2{font-size:30px}#search{padding:13px;border:1px solid #d8dee8;border-radius:11px;width:300px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:white;border-radius:20px;overflow:hidden;box-shadow:0 8px 25px #00000010;border:1px solid #e7eaf0}
+.card img{width:100%;height:330px;object-fit:cover;display:block}
+.info{padding:17px}small{color:#2563eb;font-weight:900;letter-spacing:1px}h3{margin:8px 0;font-size:19px}.info p{color:#64748b;min-height:40px;line-height:1.5}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px}.row b{font-size:22px}button{border:0;background:#16a34a;color:white;padding:11px 15px;border-radius:10px;font-weight:800;cursor:pointer}
+footer{background:#0f172a;color:#cbd5e1;text-align:center;padding:25px}
+.modal{display:none;position:fixed;inset:0;background:#0009;align-items:center;justify-content:center;padding:15px;z-index:5}
+.modal>div{background:white;padding:24px;border-radius:20px;width:min(500px,100%);position:relative}
+.close{position:absolute;right:12px;top:12px;background:#eee;color:#111;width:35px;height:35px;border-radius:50%}
+label{display:block;font-weight:bold;margin:12px 0 6px}input,textarea{width:100%;padding:12px;border:1px solid #d1d5db;border-radius:10px;font-size:15px}textarea{height:80px}
+.confirm{width:100%;margin-top:15px;background:#25d366;font-size:16px}
+@media(max-width:850px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){nav{display:none}.grid{grid-template-columns:1fr}.card img{height:390px}#search{width:100%}}
+</style></head>
 <body>
-<header>
-  <div class="logo">RionShop 🛍️</div>
-  <div class="tag">Fashion • Beauty • Lifestyle • More</div>
-  <input id="search" class="search" type="search" placeholder="Search products..." oninput="filterProducts()">
-</header>
-
-<main class="container">
-  <h2 class="title">Featured Products</h2>
-  <section id="products" class="grid">
-    
-    <article class="card">
-      <div class="img-wrap"><img src="dark-blue-jeans.jpg" alt="Classic Dark Blue Jeans" loading="lazy"></div>
-      <div class="info">
-        <h3>Classic Dark Blue Jeans</h3>
-        <p class="price">৳ 1,090</p>
-        <button onclick="order('Classic Dark Blue Jeans')">Order Now</button>
-      </div>
-    </article>
-    
-
-    <article class="card">
-      <div class="img-wrap"><img src="white-jeans.jpg" alt="Premium White Jeans" loading="lazy"></div>
-      <div class="info">
-        <h3>Premium White Jeans</h3>
-        <p class="price">৳ 1,150</p>
-        <button onclick="order('Premium White Jeans')">Order Now</button>
-      </div>
-    </article>
-    
-
-    <article class="card">
-      <div class="img-wrap"><img src="blue-jeans.jpg" alt="Classic Blue Denim Jeans" loading="lazy"></div>
-      <div class="info">
-        <h3>Classic Blue Denim Jeans</h3>
-        <p class="price">৳ 1,050</p>
-        <button onclick="order('Classic Blue Denim Jeans')">Order Now</button>
-      </div>
-    </article>
-    
-
-    <article class="card">
-      <div class="img-wrap"><img src="stripe-drop-shoulder-shirt.jpg" alt="Gentle Stripe Drop-Shoulder Shirt" loading="lazy"></div>
-      <div class="info">
-        <h3>Gentle Stripe Drop-Shoulder Shirt</h3>
-        <p class="price">৳ 890</p>
-        <button onclick="order('Gentle Stripe Drop-Shoulder Shirt')">Order Now</button>
-      </div>
-    </article>
-    
-
-    <article class="card">
-      <div class="img-wrap"><img src="light-blue-baggy-jeans.jpg" alt="Light Blue Baggy Jeans" loading="lazy"></div>
-      <div class="info">
-        <h3>Light Blue Baggy Jeans</h3>
-        <p class="price">৳ 1,190</p>
-        <button onclick="order('Light Blue Baggy Jeans')">Order Now</button>
-      </div>
-    </article>
-    
-
-    <article class="card">
-      <div class="img-wrap"><img src="papaya-purifying-cleanser.jpg" alt="Papaya Purifying Cleanser" loading="lazy"></div>
-      <div class="info">
-        <h3>Papaya Purifying Cleanser</h3>
-        <p class="price">৳ 350</p>
-        <button onclick="order('Papaya Purifying Cleanser')">Order Now</button>
-      </div>
-    </article>
-    
-
-    <article class="card">
-      <div class="img-wrap"><img src="street-style-outfit.jpg" alt="Street Style Outfit" loading="lazy"></div>
-      <div class="info">
-        <h3>Street Style Outfit</h3>
-        <p class="price">৳ 1,490</p>
-        <button onclick="order('Street Style Outfit')">Order Now</button>
-      </div>
-    </article>
-    
-
-    <article class="card">
-      <div class="img-wrap"><img src="free-fire-profile.jpg" alt="Free Fire Profile" loading="lazy"></div>
-      <div class="info">
-        <h3>Free Fire Profile</h3>
-        <p class="price">৳ 500</p>
-        <button onclick="order('Free Fire Profile')">Order Now</button>
-      </div>
-    </article>
-    
-
-    <article class="card">
-      <div class="img-wrap"><img src="casual-brown-white-outfit.jpg" alt="Casual Brown & White Outfit" loading="lazy"></div>
-      <div class="info">
-        <h3>Casual Brown & White Outfit</h3>
-        <p class="price">৳ 1,390</p>
-        <button onclick="order('Casual Brown & White Outfit')">Order Now</button>
-      </div>
-    </article>
-    
-  </section>
-</main>
-
-<footer>© 2026 RionShop — All Rights Reserved</footer>
-
+<header><div class="nav"><div class="logo">RionShop</div><nav><a href="#products">Products</a><a href="#about">About</a><a href="https://wa.me/8801770775275" target="_blank">WhatsApp</a></nav></div></header>
+<section class="hero"><div><h1>Style that fits you.</h1><p>RionShop-এর নতুন Denim Collection থেকে পছন্দের Jeans বেছে নিন। Order Now চাপলেই WhatsApp-এ অর্ডার পাঠাতে পারবেন।</p><a class="btn" href="#products">Shop Now →</a></div><div class="box"><h2>🛍️ Easy Order</h2><p>Product নির্বাচন করুন → Order Now → নাম, ফোন ও ঠিকানা দিন → WhatsApp-এ পাঠিয়ে দিন।</p></div></section>
+<main id="products"><div class="top"><div><h2>✨ Featured Collection</h2><p>Premium denim • Stylish • Affordable</p></div><input id="search" oninput="filter()" placeholder="🔎 Product search করুন"></div>
+<div class="grid"><article class="card" data-name="sky blue baggy jeans">
+<img src="images/sky-blue-baggy.jpg" alt="Sky Blue Baggy Jeans">
+<div class="info"><small>DENIM COLLECTION</small><h3>Sky Blue Baggy Jeans</h3>
+<p>Relaxed fit denim for everyday style.</p><div class="row"><b>৳950</b>
+<button onclick="order('Sky Blue Baggy Jeans',950)">Order Now</button></div></div></article><article class="card" data-name="classic blue wide jeans">
+<img src="images/classic-blue-wide.jpg" alt="Classic Blue Wide Jeans">
+<div class="info"><small>DENIM COLLECTION</small><h3>Classic Blue Wide Jeans</h3>
+<p>Classic blue wide-leg denim.</p><div class="row"><b>৳890</b>
+<button onclick="order('Classic Blue Wide Jeans',890)">Order Now</button></div></div></article><article class="card" data-name="midnight black baggy jeans">
+<img src="images/midnight-black.jpg" alt="Midnight Black Baggy Jeans">
+<div class="info"><small>DENIM COLLECTION</small><h3>Midnight Black Baggy Jeans</h3>
+<p>Modern dark denim baggy fit.</p><div class="row"><b>৳990</b>
+<button onclick="order('Midnight Black Baggy Jeans',990)">Order Now</button></div></div></article><article class="card" data-name="ice white baggy jeans">
+<img src="images/ice-white.jpg" alt="Ice White Baggy Jeans">
+<div class="info"><small>DENIM COLLECTION</small><h3>Ice White Baggy Jeans</h3>
+<p>Fresh white denim for smart casual looks.</p><div class="row"><b>৳920</b>
+<button onclick="order('Ice White Baggy Jeans',920)">Order Now</button></div></div></article><article class="card" data-name="deep navy wide jeans">
+<img src="images/deep-navy.jpg" alt="Deep Navy Wide Jeans">
+<div class="info"><small>DENIM COLLECTION</small><h3>Deep Navy Wide Jeans</h3>
+<p>Deep navy wide-leg denim.</p><div class="row"><b>৳950</b>
+<button onclick="order('Deep Navy Wide Jeans',950)">Order Now</button></div></div></article><article class="card" data-name="royal blue denim jeans">
+<img src="images/royal-blue.jpg" alt="Royal Blue Denim Jeans">
+<div class="info"><small>DENIM COLLECTION</small><h3>Royal Blue Denim Jeans</h3>
+<p>Rich blue denim for street style.</p><div class="row"><b>৳890</b>
+<button onclick="order('Royal Blue Denim Jeans',890)">Order Now</button></div></div></article></div>
+<section id="about" style="margin-top:35px;background:white;padding:25px;border-radius:20px"><h2>About RionShop</h2><p>RionShop-এর মাধ্যমে সহজে পছন্দের product দেখে WhatsApp-এ order করতে পারবেন।</p></section></main>
+<footer>© 2026 RionShop • WhatsApp: 01770775275</footer>
+<div class="modal" id="modal"><div><button class="close" onclick="closeModal()">✕</button><h2>📦 Place Your Order</h2><p id="selected"></p>
+<label>Your Name</label><input id="name" placeholder="আপনার নাম">
+<label>Phone Number</label><input id="phone" placeholder="01XXXXXXXXX">
+<label>Quantity</label><input id="qty" type="number" value="1" min="1">
+<label>Delivery Address</label><textarea id="address" placeholder="আপনার সম্পূর্ণ ঠিকানা"></textarea>
+<button class="confirm" onclick="send()">📲 Confirm Order via WhatsApp</button></div></div>
 <script>
-function filterProducts(){
-  const q=document.getElementById('search').value.toLowerCase();
-  document.querySelectorAll('.card').forEach(card=>{
-    card.classList.toggle('hidden', !card.innerText.toLowerCase().includes(q));
-  });
-}
-function order(name){
-  alert("Thanks for choosing RionShop!\n\nProduct: " + name + "\n\nAdd your WhatsApp/Facebook order link here when you're ready.");
-}
-</script>
-</body>
-</html>
+let product="",price=0;
+function order(p,pr){product=p;price=pr;document.getElementById("selected").innerHTML="<b>"+p+"</b> — ৳"+pr;document.getElementById("modal").style.display="flex"}
+function closeModal(){document.getElementById("modal").style.display="none"}
+function send(){let n=document.getElementById("name").value.trim(),ph=document.getElementById("phone").value.trim(),q=document.getElementById("qty").value,a=document.getElementById("address").value.trim();if(!n||!ph||!a){alert("সব তথ্য পূরণ করুন।");return}let m=`🛍️ RIONSHOP — NEW ORDER\n\n👤 Name: ${n}\n📞 Phone: ${ph}\n📦 Product: ${product}\n🔢 Quantity: ${q}\n💰 Total: ৳${price*q}\n📍 Address: ${a}`;window.open("https://wa.me/8801770775275?text="+encodeURIComponent(m),"_blank")}
+function filter(){let q=document.getElementById("search").value.toLowerCase();document.querySelectorAll(".card").forEach(c=>c.style.display=c.dataset.name.includes(q)?"":"none")}
+</script></body></html>
